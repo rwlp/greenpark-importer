@@ -1,0 +1,19 @@
+{
+  "name": "greenpark-importer",
+  "version": "1.0.0",
+  "description": "Aplicação responsável por importar e exportar arquivos .csv e .pdf para sincronizar dados entre o sistema financeiro e o sistema de portaria, com foco em relatórios e gerenciamento de boletos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwlp/greenpark-importer.git"
+  },
+  "author": "https://github.com/rwlp/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwlp/greenpark-importer/issues"
+  },
+  "homepage": "https://github.com/rwlp/greenpark-importer#readme"
+}
