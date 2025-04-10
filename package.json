@@ -2,8 +2,14 @@
   "name": "greenpark-importer",
   "version": "1.0.0",
   "description": "Aplicação responsável por importar e exportar arquivos .csv e .pdf para sincronizar dados entre o sistema financeiro e o sistema de portaria, com foco em relatórios e gerenciamento de boletos",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node dist/index.js",
+    "generateDI": "npx ts-node -r tsconfig-paths/register src/config/typeinject/bin/scriptToGenContainer.ts",
+    "generatePrisma": "npx prisma generate --schema=src/config/prisma/schema.prisma",
+    "migratePrisma": "npx prisma migrate dev --schema=src/config/prisma/schema.prisma",
+    "build": "tsc && tsc-alias && cp src/config/prisma/generatedFiles/*.so.node dist/config/prisma/generatedFiles",
+    "dev": "npx ts-node -r tsconfig-paths/register src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +21,21 @@
   "bugs": {
     "url": "https://github.com/rwlp/greenpark-importer/issues"
   },
-  "homepage": "https://github.com/rwlp/greenpark-importer#readme"
+  "homepage": "https://github.com/rwlp/greenpark-importer#readme",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.15",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "prisma": "^6.6.0",
+    "reflect-metadata": "^0.2.2"
+  }
 }

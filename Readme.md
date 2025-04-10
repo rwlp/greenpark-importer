@@ -3,6 +3,7 @@
 ## Summary
 
 - [Detalhes da Sprint (Baseado no framework Scrum)](#detalhes-da-sprint)
+- [Como tratamos Injecao de Dependencias](#TypeInject)
 
 ## Detalhes da Sprint
 
@@ -33,13 +34,65 @@ O Sprint Backlog deve ser atualizado a cada commit, bem como a cada alteracao na
 
 - Criar repositório e configurações iniciais:
   - Criar repositório no GitHub ![badge-green](https://img.shields.io/badge/Status--green)
-  - Configurar a estrutura de código da aplicação backend 
+  - Configurar a estrutura de código da aplicação backend ![badge-green](https://img.shields.io/badge/Status--green)
   - Configurar ambiente Docker
   - Configurar ambiente de testes para framework TDD
   - Configurar ambiente para banco de dados
-  - Configurar TypeScript e processos de build
+  - Configurar TypeScript e processos de build ![badge-green](https://img.shields.io/badge/Status--green)
 - Criar tabelas e migrações para o banco de dados
 - Criar dados fake (PDFs, CSVs, bem como inserir dados iniciais no banco de dados se for preciso)
 - Definir requisições HTTP usando Postman
 - Escrever código dos endpoints no backend
 - Fazer testes de integração(opcional)
+
+
+## Estrutura de Pastas
+```
+src/
+├── config/                  # Configurações globais de frameworks e libs utilizadas no app
+│   ├── typeInject           # Configuração e container para injeção de dependência
+│   │   ├── bin              # Scripts para geração de arquivos
+│   │   ├── generatedFiles   # Contém todos os arquivos gerados automaticamente
+│   │   ├── types            # Tipos utilizados pelo container
+│   │   └── decorators.ts    # Decorators @Provide e @Inject
+│   ├── prisma               # Arquivos de configuração do framework Prisma para ORM
+│   │   ├── schema.prisma    # Schema do Prisma para banco de dados SQL
+│   │   ├── .env             # Usado apenas para desenvolvimento local
+│   │   └── generatedFiles/  # Arquivos gerados pelo Prisma, considerados sempre locais
+│   └── serverConfigs        # Configurações do servidor (utilizamos o framework ExpressJS)
+│       ├── configs.ts       # Configurações globais do ExpressJS
+│       └── router.ts        # Configurações globais relacionadas às rotas dos endpoints
+│
+├── lib/                         # Utilizamos design orientado a objetos; cada pasta representa um design pattern ou recurso
+│   ├── dataAccessObjects/       # DAOs (Data Access Objects), responsáveis pela abstração da comunicação com o banco de dados
+│   ├── middlewares/             # Todos os códigos relacionados a middlewares usados no app
+│   ├── repositories/            # Repositórios, padrão Repository para acesso a dados específicos
+│   ├── services/                # Camada de lógica de negócio
+│   ├── controller/              # Camada que lida com requisições e respostas do servidor
+│   └── interfaces/              # Interfaces e classes abstratas
+│
+├── utils/                       # Funções utilitárias
+│   ├── dateUtils.ts
+│   └── stringUtils.ts
+│
+├── types/                       # Tipos globais
+│   ├── express.d.ts
+│   └── user.d.ts
+│
+└── ...
+```
+
+## TypeInject
+
+Automação transparente para injeção de dependência em TypeScript.  
+**Atenção**: isso **não é uma biblioteca externa**, mas sim uma solução desenvolvida localmente utilizando algumas bibliotecas de terceiros como suporte.
+
+### Como funciona o TypeInject
+
+- Use `@Provider("ChaveQualquer")` em uma classe (ou método de classe) para registrá-la como um provedor.
+- Execute `ts-node generateDI` para gerar automaticamente um container com os arquivos e tipos necessários para a injeção de dependência.
+- Utilize `@Inject()` como decorator de classes e `@Autowired("ChaveCriada")` apenas em propriedades para realizar a injeção automática.
+- Use `@Singleton()` para aplicar o padrão de projeto Singleton.
+- Funciona exclusivamente em arquivos com extensão `.class.ts` que utilizem `export default`.
+> **Nota:** Utilize o arquivo `typeinject.config.ts` para configurações globais.
+

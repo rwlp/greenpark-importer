@@ -1,0 +1,8 @@
+node_modules/
+dist/
+src/config/prisma/generatedFiles/
+src/config/prisma/migrations/
+src/config/typeinject/generatedFiles/
+dockerFiles/
+coverage/
+*.env
