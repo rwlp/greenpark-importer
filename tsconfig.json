@@ -14,7 +14,9 @@
       "moduleResolution": "node",
       "allowJs": true,
       "types": [
+        "jest",
         "node",
+        "reflect-metadata"
       ],
       "paths": {
         "@/*": [

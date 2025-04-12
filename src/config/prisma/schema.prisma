@@ -11,12 +11,26 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Lote {
+  id String @id @default(uuid())
+  nome String @unique
+  ativo Boolean
+
+  boleto Boleto[]
+}
+
+model Boleto {
+  id Int @id @default(autoincrement())
+  nomeSacado String
+  valor Float
+  linha_digitavel String @unique
+  ativo Boolean
+  dataCricacao DateTime @default(now())
+  
+  lote_id String
+  lote Lote @relation(fields: [lote_id], references: [id])
 }
