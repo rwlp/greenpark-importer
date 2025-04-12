@@ -30,6 +30,7 @@ export default class ControllerImportarBoleto implements BaseControllerInterface
             }
             if (error instanceof AppError) throw error;
 
+            console.log(error)
             throw new AppError({
                 message: 'Erro inesperado no Sistema, tente novamente',
                 statusCode: 500

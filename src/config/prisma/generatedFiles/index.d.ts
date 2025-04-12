@@ -2047,17 +2047,15 @@ export namespace Prisma {
   }
 
   export type BoletoAvgAggregateOutputType = {
-    id: number | null
     valor: number | null
   }
 
   export type BoletoSumAggregateOutputType = {
-    id: number | null
     valor: number | null
   }
 
   export type BoletoMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     nomeSacado: string | null
     valor: number | null
     linha_digitavel: string | null
@@ -2067,7 +2065,7 @@ export namespace Prisma {
   }
 
   export type BoletoMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     nomeSacado: string | null
     valor: number | null
     linha_digitavel: string | null
@@ -2089,12 +2087,10 @@ export namespace Prisma {
 
 
   export type BoletoAvgAggregateInputType = {
-    id?: true
     valor?: true
   }
 
   export type BoletoSumAggregateInputType = {
-    id?: true
     valor?: true
   }
 
@@ -2216,7 +2212,7 @@ export namespace Prisma {
   }
 
   export type BoletoGroupByOutputType = {
-    id: number
+    id: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -2304,7 +2300,7 @@ export namespace Prisma {
       lote: Prisma.$LotePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       nomeSacado: string
       valor: number
       linha_digitavel: string
@@ -2735,7 +2731,7 @@ export namespace Prisma {
    * Fields of the Boleto model
    */
   interface BoletoFieldRefs {
-    readonly id: FieldRef<"Boleto", 'Int'>
+    readonly id: FieldRef<"Boleto", 'String'>
     readonly nomeSacado: FieldRef<"Boleto", 'String'>
     readonly valor: FieldRef<"Boleto", 'Float'>
     readonly linha_digitavel: FieldRef<"Boleto", 'String'>
@@ -3235,20 +3231,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3273,6 +3255,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
   /**
    * Deep Input Types
@@ -3328,7 +3324,7 @@ export namespace Prisma {
     AND?: BoletoWhereInput | BoletoWhereInput[]
     OR?: BoletoWhereInput[]
     NOT?: BoletoWhereInput | BoletoWhereInput[]
-    id?: IntFilter<"Boleto"> | number
+    id?: StringFilter<"Boleto"> | string
     nomeSacado?: StringFilter<"Boleto"> | string
     valor?: FloatFilter<"Boleto"> | number
     linha_digitavel?: StringFilter<"Boleto"> | string
@@ -3350,7 +3346,7 @@ export namespace Prisma {
   }
 
   export type BoletoWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     linha_digitavel?: string
     AND?: BoletoWhereInput | BoletoWhereInput[]
     OR?: BoletoWhereInput[]
@@ -3382,7 +3378,7 @@ export namespace Prisma {
     AND?: BoletoScalarWhereWithAggregatesInput | BoletoScalarWhereWithAggregatesInput[]
     OR?: BoletoScalarWhereWithAggregatesInput[]
     NOT?: BoletoScalarWhereWithAggregatesInput | BoletoScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Boleto"> | number
+    id?: StringWithAggregatesFilter<"Boleto"> | string
     nomeSacado?: StringWithAggregatesFilter<"Boleto"> | string
     valor?: FloatWithAggregatesFilter<"Boleto"> | number
     linha_digitavel?: StringWithAggregatesFilter<"Boleto"> | string
@@ -3438,6 +3434,7 @@ export namespace Prisma {
   }
 
   export type BoletoCreateInput = {
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -3447,7 +3444,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedCreateInput = {
-    id?: number
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -3457,6 +3454,7 @@ export namespace Prisma {
   }
 
   export type BoletoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -3466,7 +3464,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -3476,7 +3474,7 @@ export namespace Prisma {
   }
 
   export type BoletoCreateManyInput = {
-    id?: number
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -3486,6 +3484,7 @@ export namespace Prisma {
   }
 
   export type BoletoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -3494,7 +3493,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -3577,17 +3576,6 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -3626,7 +3614,6 @@ export namespace Prisma {
   }
 
   export type BoletoAvgOrderByAggregateInput = {
-    id?: SortOrder
     valor?: SortOrder
   }
 
@@ -3651,24 +3638,7 @@ export namespace Prisma {
   }
 
   export type BoletoSumOrderByAggregateInput = {
-    id?: SortOrder
     valor?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -3777,14 +3747,6 @@ export namespace Prisma {
     update?: XOR<XOR<LoteUpdateToOneWithWhereWithoutBoletoInput, LoteUpdateWithoutBoletoInput>, LoteUncheckedUpdateWithoutBoletoInput>
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -3862,22 +3824,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -3909,6 +3855,7 @@ export namespace Prisma {
   }
 
   export type BoletoCreateWithoutLoteInput = {
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -3917,7 +3864,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedCreateWithoutLoteInput = {
-    id?: number
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -3955,7 +3902,7 @@ export namespace Prisma {
     AND?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
     OR?: BoletoScalarWhereInput[]
     NOT?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
-    id?: IntFilter<"Boleto"> | number
+    id?: StringFilter<"Boleto"> | string
     nomeSacado?: StringFilter<"Boleto"> | string
     valor?: FloatFilter<"Boleto"> | number
     linha_digitavel?: StringFilter<"Boleto"> | string
@@ -4005,7 +3952,7 @@ export namespace Prisma {
   }
 
   export type BoletoCreateManyLoteInput = {
-    id?: number
+    id?: string
     nomeSacado: string
     valor: number
     linha_digitavel: string
@@ -4014,6 +3961,7 @@ export namespace Prisma {
   }
 
   export type BoletoUpdateWithoutLoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -4022,7 +3970,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedUpdateWithoutLoteInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string
@@ -4031,7 +3979,7 @@ export namespace Prisma {
   }
 
   export type BoletoUncheckedUpdateManyWithoutLoteInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     nomeSacado?: StringFieldUpdateOperationsInput | string
     valor?: FloatFieldUpdateOperationsInput | number
     linha_digitavel?: StringFieldUpdateOperationsInput | string

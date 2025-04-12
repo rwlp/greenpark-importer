@@ -24,7 +24,7 @@ model Lote {
 }
 
 model Boleto {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nomeSacado String
   valor Float
   linha_digitavel String @unique
