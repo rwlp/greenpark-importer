@@ -10,7 +10,7 @@ import AppError from '@/utils/AppError.class'
 import checkSeCSVEstaInfectado from '@/utils/checkSeCSVEstaInfectado';
 import PDFUtils from '@/utils/PDFUtils';
 import BoletoRepository from '../repositories/BoletoRepository.class';
-import { Autowired, Inject, Provider } from '@/config/typeInject/decorators/decorators';
+import { Autowired, Inject, Provider } from '@/config/typeinject/decorators/decorators';
 import LoteRepository from '../repositories/LoteRepository.class';
 
 const MAX_SIZE_FOR_PDF = 5 * 1024 * 1024;

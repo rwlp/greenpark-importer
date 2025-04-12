@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import BaseControllerInterface from "../interfaces/BaseControllerInterface";
 import ServiceBoleto from "../services/ServiceBoleto.class";
 import ResponseWrapperDTO from "@/types/DTOs/ResponseWrapperDTO.class";
-import { Autowired, Inject } from "@/config/typeInject/decorators/decorators";
+import { Autowired, Inject } from "@/config/typeinject/decorators/decorators";
 
 @Inject()
 export default class ControllerRelatoriosBoletos implements BaseControllerInterface { 

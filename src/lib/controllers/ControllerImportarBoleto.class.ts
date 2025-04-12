@@ -5,7 +5,7 @@ import MulterUtils from "@/utils/MulterUtils";
 import AppError from "@/utils/AppError.class";
 import ResponseWrapperDTO from "@/types/DTOs/ResponseWrapperDTO.class";
 import ServiceBoleto from "../services/ServiceBoleto.class";
-import { Autowired, Inject } from "@/config/typeInject/decorators/decorators";
+import { Autowired, Inject } from "@/config/typeinject/decorators/decorators";
 
 @Inject()
 export default class ControllerImportarBoleto implements BaseControllerInterface {

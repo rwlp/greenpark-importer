@@ -1,4 +1,4 @@
-import { Autowired, Inject, Provider } from "@/config/typeInject/decorators/decorators";
+import { Autowired, Inject, Provider } from "@/config/typeinject/decorators/decorators";
 import PrismaInstanceDAO from "../DataAccessObjects/PrismaInstanceDAO.class";
 
 

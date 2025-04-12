@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from "@/config/prisma/generatedFiles";
 import PrismaInstanceDAO from "../DataAccessObjects/PrismaInstanceDAO.class";
-import { Autowired, Inject, Provider } from "@/config/typeInject/decorators/decorators";
+import { Autowired, Inject, Provider } from "@/config/typeinject/decorators/decorators";
 
 
 @Provider("BoletoRepo")
@@ -30,7 +30,7 @@ export default class BoletoRepository {
     }
 
     async boletoPorNomeDoSacado(nome: string) {
-        return await this.dao.prismaInstance.boleto.findUnique({where: {
+        return await this.dao.prismaInstance.boleto.findFirst({ where: {
             nomeSacado: nome
         }});
     }

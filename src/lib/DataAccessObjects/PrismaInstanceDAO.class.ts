@@ -1,5 +1,5 @@
 import { PrismaClient } from "@/config/prisma/generatedFiles";
-import { Provider, Singleton } from "@/config/typeInject/decorators/decorators";
+import { Provider, Singleton } from "@/config/typeinject/decorators/decorators";
 
 @Provider("PrismaInstance")
 @Singleton()
